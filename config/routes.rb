@@ -1,31 +1,28 @@
 Rails.application.routes.draw do
-  #get "/",  controller: "movies", action: "index" 
-  #get "/" => "movies#index" #short hand syntax
   root "movies#index" #even shorter short hand syntax
 
   # Routes for the Movie resource:
 
   # CREATE
-  #post("/movies", { :controller => "movies", :action => "create" })
-  post "/movies" => "movies#create"
-  # get("/movies/new", { :controller => "movies", :action => "new" })
-  get "/movies/new" => "movies#new"
+
+  post "/movies" => "movies#create", as: :movies #movies_url and movies_path
+  
+  get "/movies/new" => "movies#new", as: :new_movie #new_movie_url and new_movie_path
 
   # READ
-  # get("/movies", { :controller => "movies", :action => "index" })
-  get "/movies" => "movies#index"
-  # get("/movies/:id", { :controller => "movies", :action => "show" })
-  get "/movies/:id" => "movies#show"
+  get "/movies" => "movies#index" #already defined above
+  
+  get "/movies/:id" => "movies#show", as: :movie #movie_path(arg)
   
   # UPDATE
-  # patch("/movies/:id", { :controller => "movies", :action => "update" })
-  patch "/movies/:id" => "movies#update"
-  # get("/movies/:id/edit", { :controller => "movies", :action => "edit" })
-  get "/movies/:id/edit" => "movies#edit"
+  
+  patch "/movies/:id" => "movies#update" #already defined above
+ 
+  get "/movies/:id/edit" => "movies#edit", as: :edit_movie #edit_movie_path(arg)
   
   # DELETE
-  # delete("/movies/:id", { :controller => "movies", :action => "destroy" })
-  get "/movies/:id" => "movies#destroy"
+
+  get "/movies/:id" => "movies#destroy" #already defined above
 
   #------------------------------
 end
