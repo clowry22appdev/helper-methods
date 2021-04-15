@@ -33,29 +33,29 @@ class DirectorsController < ApplicationController
     end
 
     def edit
-      @movie = Movie.find(params.fetch(:id))
+      @director = Director.find(params.fetch(:id))
 
     end
 
     def update
-      movie_attributes = params.fetch(:movie).permit( :title, :description)
-      @movie = Movie.find(params.fetch(:id))
-      @movie.update(movie_attributes)
+      director_attributes = params.fetch(:director).permit( :name, :dob, :bio)
+      @director = Director.find(params.fetch(:id))
+      @director.update(director_attributes)
 
 
-      if @movie.valid?
-        @movie.save
-        redirect_to movie_url(@movie),  notice:  "Movie updated successfully." 
+      if @director.valid?
+        @director.save
+        redirect_to director_url(@director),  notice:  "Director updated successfully." 
       else
-        redirect_to movie_url(@movie),  alert:  "Movie failed to update successfully." 
+        redirect_to director_url(@director),  alert:  "Director failed to update successfully." 
       end
     end
 
     def destroy
-      @movie = Movie.find(params.fetch(:id))
+      @director = Director.find(params.fetch(:id))
 
-      @movie.destroy
+      @director.destroy
 
-      redirect_to movies_url,  notice:  "Movie deleted successfully."
+      redirect_to directors_url,  notice:  "Director deleted successfully."
     end
 end
