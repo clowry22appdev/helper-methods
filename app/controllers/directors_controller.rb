@@ -20,13 +20,13 @@ class DirectorsController < ApplicationController
     end
 
     def create
-      movie_attributes = params.require(:movie).permit(:title, :description)
-      @movie = Movie.new(movie_attributes)
+      director_attributes = params.require(:director).permit(:name, :dob, :bio)
+      @director = Director.new(director_attributes)
     
 
-      if @movie.valid?
-        @movie.save
-        redirect_to movies_url,  notice: "Movie created successfully." 
+      if @director.valid?
+        @director.save
+        redirect_to directors_url,  notice: "Director created successfully." 
       else
         render template: "new"
       end
