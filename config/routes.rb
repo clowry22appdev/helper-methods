@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   # Routes for the Movie resource:
   resources :movies
+  resources :directors
+  
   # # CREATE
 
   # post "/movies" => "movies#create", as: :movies #movies_url and movies_path
