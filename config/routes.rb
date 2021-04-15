@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   
   # DELETE
 
-  get "/movies/:id" => "movies#destroy" #already defined above
+  delete "/movies/:id" => "movies#destroy" #already defined above
 
   #------------------------------
 end
