@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  root "movies#index" #even shorter short hand syntax
-
+  #root "movies#index" #even shorter short hand syntax
+  
+  root "directors#index"
   # Routes for the Movie resource:
   resources :movies
+
+  #Shortcut to make routes for Director resource
   resources :directors
   
   # # CREATE
