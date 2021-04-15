@@ -39,8 +39,8 @@ class MoviesController < ApplicationController
   end
 
   def update
-    movie_attributes = params.fetch(:movie).permit(:title, :description)
-    @movie = Movie.find(params.fetch(:id))
+    movie_attributes = params.fetch(:movie).permit( :title, :description)
+    @movie = Movie.find(params.fetch(:id))
     @movie.update(movie_attributes)
 
 
@@ -55,7 +55,7 @@ class MoviesController < ApplicationController
   def destroy
     @movie = Movie.find(params.fetch(:id))
 
-    the_movie.destroy
+    @movie.destroy
 
     redirect_to movies_url,  notice:  "Movie deleted successfully."
   end
